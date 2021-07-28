@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Followup from "./components/followup";
+import Phone from "./components/phone";
+import { Container } from "react-bootstrap";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Container className="py-5 text-content">
+        <img alt="logo" className="d-block mx-auto mb-4" src="/unnamed.png" />
+        <h1>Today follow-up</h1>
+        <Router>
+          <Switch>
+            <Route path="/" exact>
+              <Phone />
+            </Route>
+            <Route path="/followup" exact>
+              <Followup />
+            </Route>
+          </Switch>
+        </Router>
+      </Container>
+    </main>
   );
-}
+};
 
 export default App;
